@@ -80,3 +80,11 @@ Currently under development.
 * Derive account balances from ledger entries.
 * Maintain auditability.
 * Prepare foundation for transaction processing.
+
+
+
+initial bank transfer logic get one user make login make account and then logout ok
+then make login of system user for funds then make account the token saved in cookie is should of system
+then in toacount give user qaccount id idemkey and amount and then complete transactions
+after that login again from user account and get your balance 
+thats the logic
