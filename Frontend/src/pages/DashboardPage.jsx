@@ -58,7 +58,7 @@ const totalTransactions = summaryData?.totalTransactions || 0;
               {/* left */}
               <div className="  ">
 
-                <h1 className="text-5xl pl-10 font-bold">
+                <h1 className="text-5xl pt-15 pl-10 font-bold">
                   Welcome back, {authUser?.name}
                 </h1>
 

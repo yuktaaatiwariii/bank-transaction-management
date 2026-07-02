@@ -20,7 +20,7 @@ transactionRoutes.post("/system/initial-funds", authMiddleware.authSystemMiddlew
 transactionRoutes.get("/history/:accountId", authMiddleware.authMiddleware, transactionController.getTransactionHistory);
 
 // -GET /api/transactions/getAllAccounts 
-// get all accounts of all users 
+// get all accounts of all users (for admin only)
 
 transactionRoutes.get("/getAllAccounts",authMiddleware.authSystemMiddleware,transactionController.getAllAccounts);
 
@@ -28,5 +28,10 @@ transactionRoutes.get("/getAllAccounts",authMiddleware.authSystemMiddleware,tran
 // get all users 
 
 transactionRoutes.get("/viewAllUsers",authMiddleware.authSystemMiddleware,transactionController.viewAllUsers);
+
+// -GET /api/transactions/getAllAccounts
+// get all accounts of all users (for transaction only)
+
+transactionRoutes.get("/transferAccounts", authMiddleware.authMiddleware, transactionController.getTransferAccounts);
 
 module.exports = transactionRoutes;

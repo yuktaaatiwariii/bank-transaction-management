@@ -29,7 +29,7 @@ async function createTransaction(req, res) {
         return res.status(400).json({ error: "Missing required fields" });
     }
 
-    const fromUserAccount = await accountModel.findOne({ _id: fromAccount,});
+    const fromUserAccount = await accountModel.findOne({ _id: fromAccount, user: req.user._id});
     const toUserAccount = await accountModel.findOne({ _id: toAccount,});
 
     if (!fromUserAccount || !toUserAccount) {
@@ -334,6 +334,21 @@ async function getAllAccounts(req,res){
    })
 }
     
+async function getTransferAccounts(req, res) {
+    const accounts = await accountModel
+        .find({
+            status: "ACTIVE",
+           
+        })
+        .populate("user", "name");
+
+    res.status(200).json({
+        success: true,
+        accounts,
+    });
+}
+
+
 async function viewAllUsers(req,res){
 
    const users = await accountModel.find()
@@ -347,5 +362,5 @@ async function viewAllUsers(req,res){
 
 module.exports = {
     createTransaction, createInitialFundsTransaction,
-    getTransactionHistory ,getAllAccounts, viewAllUsers
+    getTransactionHistory ,getAllAccounts, viewAllUsers , getTransferAccounts
 }

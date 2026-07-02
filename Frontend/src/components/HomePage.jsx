@@ -23,7 +23,7 @@ export default function Home() {
 
     <main className="flex-1 bg-[#f8f8fb]">
        <Topbar />
-          <div className="p-6">
+          <div>
             <Outlet />
           </div>
       </main>
